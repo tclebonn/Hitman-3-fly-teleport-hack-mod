@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Configurations>Debug;Release;Release EXE;tt</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>Hitman3FlyTP</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="FodyWeavers.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="FodyWeavers.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Memory.dll.x64" Version="1.2.21" />
+  </ItemGroup>
+
+</Project>
