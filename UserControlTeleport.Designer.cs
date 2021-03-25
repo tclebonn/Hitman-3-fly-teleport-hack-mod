@@ -42,6 +42,8 @@ namespace Hitman3Reworked
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkBoxCycle = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonSavePosition
@@ -49,7 +51,7 @@ namespace Hitman3Reworked
             this.buttonSavePosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSavePosition.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSavePosition.ForeColor = System.Drawing.Color.White;
-            this.buttonSavePosition.Location = new System.Drawing.Point(220, 104);
+            this.buttonSavePosition.Location = new System.Drawing.Point(221, 105);
             this.buttonSavePosition.Name = "buttonSavePosition";
             this.buttonSavePosition.Size = new System.Drawing.Size(169, 27);
             this.buttonSavePosition.TabIndex = 1;
@@ -62,7 +64,7 @@ namespace Hitman3Reworked
             this.buttonTeleportToSavedPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTeleportToSavedPosition.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonTeleportToSavedPosition.ForeColor = System.Drawing.Color.White;
-            this.buttonTeleportToSavedPosition.Location = new System.Drawing.Point(395, 105);
+            this.buttonTeleportToSavedPosition.Location = new System.Drawing.Point(406, 106);
             this.buttonTeleportToSavedPosition.Name = "buttonTeleportToSavedPosition";
             this.buttonTeleportToSavedPosition.Size = new System.Drawing.Size(168, 26);
             this.buttonTeleportToSavedPosition.TabIndex = 2;
@@ -176,17 +178,45 @@ namespace Hitman3Reworked
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(25, 203);
+            this.label5.Location = new System.Drawing.Point(25, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(217, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "NumPad 3: TP to saved position";
+            // 
+            // checkBoxCycle
+            // 
+            this.checkBoxCycle.AutoSize = true;
+            this.checkBoxCycle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxCycle.ForeColor = System.Drawing.Color.White;
+            this.checkBoxCycle.Location = new System.Drawing.Point(581, 111);
+            this.checkBoxCycle.Name = "checkBoxCycle";
+            this.checkBoxCycle.Size = new System.Drawing.Size(66, 22);
+            this.checkBoxCycle.TabIndex = 13;
+            this.checkBoxCycle.Text = "Cycle";
+            this.checkBoxCycle.UseVisualStyleBackColor = true;
+            this.checkBoxCycle.CheckedChanged += new System.EventHandler(this.checkBoxCycle_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(25, 203);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(620, 36);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Cycle : if the option is enabled evertyime you teleport to a saved position with " +
+    "Numpad 3 ,\r\n             next location is changed automatically to the next opti" +
+    "on in list ";
             // 
             // UserControlTeleport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.checkBoxCycle);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonTPToPosition);
@@ -200,7 +230,7 @@ namespace Hitman3Reworked
             this.Controls.Add(this.buttonTeleportToSavedPosition);
             this.Controls.Add(this.buttonSavePosition);
             this.Name = "UserControlTeleport";
-            this.Size = new System.Drawing.Size(578, 349);
+            this.Size = new System.Drawing.Size(647, 284);
             this.Load += new System.EventHandler(this.UserControlTeleport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -223,5 +253,7 @@ namespace Hitman3Reworked
         private System.Windows.Forms.TextBox textboxmanualZ;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBoxCycle;
+        private System.Windows.Forms.Label label6;
     }
 }

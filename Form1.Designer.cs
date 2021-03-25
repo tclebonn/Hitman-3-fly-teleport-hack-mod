@@ -57,7 +57,7 @@ namespace Hitman3Reworked
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(202, 289);
+            this.panel1.Size = new System.Drawing.Size(202, 313);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -66,7 +66,7 @@ namespace Hitman3Reworked
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 225);
+            this.label2.Location = new System.Drawing.Point(13, 249);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 19);
             this.label2.TabIndex = 6;
@@ -79,7 +79,7 @@ namespace Hitman3Reworked
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 260);
+            this.label1.Location = new System.Drawing.Point(13, 284);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 19);
             this.label1.TabIndex = 5;
@@ -91,7 +91,7 @@ namespace Hitman3Reworked
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.Location = new System.Drawing.Point(192, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 287);
+            this.panel4.Size = new System.Drawing.Size(10, 311);
             this.panel4.TabIndex = 4;
             // 
             // panel3
@@ -140,9 +140,10 @@ namespace Hitman3Reworked
             // 
             this.userControlMainPage1.BackColor = System.Drawing.Color.Transparent;
             this.userControlMainPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlMainPage1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.userControlMainPage1.Location = new System.Drawing.Point(202, 0);
             this.userControlMainPage1.Name = "userControlMainPage1";
-            this.userControlMainPage1.Size = new System.Drawing.Size(608, 289);
+            this.userControlMainPage1.Size = new System.Drawing.Size(676, 313);
             this.userControlMainPage1.TabIndex = 1;
             // 
             // backgroundWorker1
@@ -155,7 +156,7 @@ namespace Hitman3Reworked
             this.userControlTeleport1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlTeleport1.Location = new System.Drawing.Point(202, 0);
             this.userControlTeleport1.Name = "userControlTeleport1";
-            this.userControlTeleport1.Size = new System.Drawing.Size(608, 289);
+            this.userControlTeleport1.Size = new System.Drawing.Size(676, 313);
             this.userControlTeleport1.TabIndex = 3;
             // 
             // label3
@@ -164,7 +165,7 @@ namespace Hitman3Reworked
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(646, 260);
+            this.label3.Location = new System.Drawing.Point(714, 284);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 16);
             this.label3.TabIndex = 7;
@@ -175,7 +176,7 @@ namespace Hitman3Reworked
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(810, 289);
+            this.ClientSize = new System.Drawing.Size(878, 313);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.userControlTeleport1);
             this.Controls.Add(this.userControlMainPage1);

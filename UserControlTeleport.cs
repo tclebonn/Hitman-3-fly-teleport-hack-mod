@@ -14,6 +14,7 @@ namespace Hitman3Reworked
         readonly Enums enums = new Enums();
         readonly string fileNamePath = "./hitman3Location.txt";
         List<Location> savedLocations = new List<Location>();
+        bool isCycleActive = false;
         public UserControlTeleport()
         {
             InitializeComponent();
@@ -22,6 +23,10 @@ namespace Hitman3Reworked
         private void UserControlTeleport_Load(object sender, EventArgs e)
         {
             ManageCoordFile();
+            if(savedPositionsComboBox.Items.Count > 0 )
+            {
+                savedPositionsComboBox.SelectedIndex = 0;
+            }
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -119,12 +124,25 @@ namespace Hitman3Reworked
 
         private void buttonTeleportToSavedPosition_Click(object sender, EventArgs e) // teleport to saved position
         {
-            TPToPosition(false);
+            if (IsValidLocation())
+            {
+                TPToPosition(false);
+            }
+            return;
         }
 
         private void buttonTPToPosition_Click(object sender, EventArgs e)
         {
-            TPToPosition(true);
+            if (IsValidLocation())
+            {
+                TPToPosition(true);
+            }
+            return;
+        }
+
+        private bool IsValidLocation()
+        {
+            return savedPositionsComboBox.Text != "";
         }
 
         public void TPToPosition(bool manualPosition)
@@ -152,6 +170,11 @@ namespace Hitman3Reworked
                     mem.WriteMemory(enums.hitmanProcessName + enums.xPlayerOffset, "float", location.XAxis.ToString());
                     mem.WriteMemory(enums.hitmanProcessName + enums.zPlayerOffset, "float", location.ZAxis.ToString());
                 }
+
+                if(isCycleActive)
+                {
+                    Cyclelocations();
+                }
             }
                 
 
@@ -166,6 +189,29 @@ namespace Hitman3Reworked
                 mem.WriteMemory("PhysX3CharacterKinematic_x64.dll+74A2", "bytes", "0F 11 86 10 02 00 00");
             }
 
+        }
+
+        private void checkBoxCycle_CheckedChanged(object sender, EventArgs e)
+        {
+            isCycleActive = checkBoxCycle.Checked;
+        }
+
+        private void Cyclelocations()
+        {
+            var items = savedPositionsComboBox.Items;
+            var currentItem = savedPositionsComboBox.SelectedIndex;
+            if (items.Count > 1)
+            {
+                if (currentItem < items.Count-1)
+                {
+                    savedPositionsComboBox.SelectedIndex++;
+                }   
+                else if(currentItem == items.Count-1)
+                {
+                    savedPositionsComboBox.SelectedIndex = 0;
+                }
+            }
+            
         }
     }
 }
