@@ -69,7 +69,7 @@ namespace Hitman3Reworked
             return savedLocations;
         }
 
-        private void button1_Click(object sender, EventArgs e) // save position button
+        private void ButtonSavePosition_click(object sender, EventArgs e) // save position button
         {
             if (savedPositionsComboBox.Text == "")
             {
@@ -87,7 +87,6 @@ namespace Hitman3Reworked
             location.Add(GetPosition("z").ToString());
             var stringToWrite = string.Join(";", location);
             File.AppendAllText(fileNamePath, stringToWrite + "\n");
-
             ManageCoordFile(); // reload File
         }
 
@@ -96,11 +95,11 @@ namespace Hitman3Reworked
             switch (position)
             {
                 case "y":
-                    return mem.ReadFloat(enums.hitmanProcessName + enums.yPlayerOffset);
+                    return mem.ReadFloat(enums.positionBasePointer + enums.yPlayerOffset);
                 case "x":
-                    return mem.ReadFloat(enums.hitmanProcessName + enums.xPlayerOffset);
+                    return mem.ReadFloat(enums.positionBasePointer + enums.xPlayerOffset);
                 case "z":
-                    return mem.ReadFloat(enums.hitmanProcessName + enums.zPlayerOffset);
+                    return mem.ReadFloat(enums.positionBasePointer + enums.zPlayerOffset);
             }
 
             return -999;
@@ -147,6 +146,10 @@ namespace Hitman3Reworked
 
         public void TPToPosition(bool manualPosition)
         {
+            if (string.IsNullOrEmpty(savedPositionsComboBox.Text))
+            {
+                return;
+            }
             byte[] comparer = new byte[] { 144, 144, 144, 144, 144, 144, 144 }; // check if the nop is already write in memory
 
             var isYcheckBoxActive = mem.ReadBytes("PhysX3CharacterKinematic_x64.dll+74AE", 7).SequenceEqual(comparer); // if false . after write i restore original situaation
@@ -157,18 +160,18 @@ namespace Hitman3Reworked
 
             if(manualPosition) // get coords from combo
             {
-                mem.WriteMemory(enums.hitmanProcessName + enums.yPlayerOffset, "float", textboxmanualY.Text);
-                mem.WriteMemory(enums.hitmanProcessName + enums.xPlayerOffset, "float", textboxmanualX.Text);
-                mem.WriteMemory(enums.hitmanProcessName + enums.zPlayerOffset, "float", textboxmanualZ.Text);
+                mem.WriteMemory(enums.positionBasePointer + enums.yPlayerOffset, "float", textboxmanualY.Text);
+                mem.WriteMemory(enums.positionBasePointer + enums.xPlayerOffset, "float", textboxmanualX.Text);
+                mem.WriteMemory(enums.positionBasePointer + enums.zPlayerOffset, "float", textboxmanualZ.Text);
             }
             else // get coords from class
             {
                 var location = savedLocations.Where(loc => loc.LocationName == savedPositionsComboBox.Text).First();
                 if (location != null)
                 {
-                    mem.WriteMemory(enums.hitmanProcessName + enums.yPlayerOffset, "float", location.YAxis.ToString());
-                    mem.WriteMemory(enums.hitmanProcessName + enums.xPlayerOffset, "float", location.XAxis.ToString());
-                    mem.WriteMemory(enums.hitmanProcessName + enums.zPlayerOffset, "float", location.ZAxis.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.yPlayerOffset, "float", location.YAxis.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.xPlayerOffset, "float", location.XAxis.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.zPlayerOffset, "float", location.ZAxis.ToString());
                 }
 
                 if(isCycleActive)
@@ -176,8 +179,6 @@ namespace Hitman3Reworked
                     Cyclelocations();
                 }
             }
-                
-
             if (!isYcheckBoxActive)
             {
                 Thread.Sleep(500);

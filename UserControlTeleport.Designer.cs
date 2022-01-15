@@ -57,7 +57,7 @@ namespace Hitman3Reworked
             this.buttonSavePosition.TabIndex = 1;
             this.buttonSavePosition.Text = "Save new position";
             this.buttonSavePosition.UseVisualStyleBackColor = true;
-            this.buttonSavePosition.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSavePosition.Click += new System.EventHandler(this.ButtonSavePosition_click);
             // 
             // buttonTeleportToSavedPosition
             // 

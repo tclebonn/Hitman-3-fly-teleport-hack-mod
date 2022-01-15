@@ -76,9 +76,9 @@ namespace Hitman3Reworked
 
         public void ManagePlayerMovements(int keyId)
         {
-            float currentXPosition = mem.ReadFloat(enums.hitmanProcessName + enums.xPlayerOffset);
-            float currentZPosition = mem.ReadFloat(enums.hitmanProcessName + enums.zPlayerOffset);
-            float currentYPosition = mem.ReadFloat(enums.hitmanProcessName + enums.yPlayerOffset);
+            float currentXPosition = mem.ReadFloat(enums.positionBasePointer + enums.xPlayerOffset);
+            float currentZPosition = mem.ReadFloat(enums.positionBasePointer + enums.zPlayerOffset);
+            float currentYPosition = mem.ReadFloat(enums.positionBasePointer + enums.yPlayerOffset);
 
             float newXposition;
             float newZposition;
@@ -89,32 +89,32 @@ namespace Hitman3Reworked
             {
                 case 7:
                     newXposition = currentXPosition + xMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.xPlayerOffset, "float", newXposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.xPlayerOffset, "float", newXposition.ToString());
                     break;
                 case 4:
                     newXposition = currentXPosition - xMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.xPlayerOffset, "float", newXposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.xPlayerOffset, "float", newXposition.ToString());
 
                     break;
 
                 case 8:
                     newZposition = currentZPosition + xMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.zPlayerOffset, "float", newZposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.zPlayerOffset, "float", newZposition.ToString());
 
                     break;
                 case 5:
                     newZposition = currentZPosition - xMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.zPlayerOffset, "float", newZposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.zPlayerOffset, "float", newZposition.ToString());
                     
                     break;
 
                 case 9:
                     newYposition = currentYPosition + yMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.yPlayerOffset, "float", newYposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.yPlayerOffset, "float", newYposition.ToString());
                     break;
                 case 6:
                     newYposition = currentYPosition - yMultiplier;
-                    mem.WriteMemory(enums.hitmanProcessName + enums.yPlayerOffset, "float", newYposition.ToString());
+                    mem.WriteMemory(enums.positionBasePointer + enums.yPlayerOffset, "float", newYposition.ToString());
                     break;
 
             }
